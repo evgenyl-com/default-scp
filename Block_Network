@@ -1,0 +1,39 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": [
+        "ec2:RunInstances"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "ForAnyValue:ArnNotEqualsIfExists": {
+          "ec2:Subnet": [
+            "arn:aws:ec2:eu-west-1:223404677305:subnet/subnet-0b204fb6e279e4959",
+            "arn:aws:ec2:eu-west-1:714599991012:subnet/subnet-0730c5616087a734a",
+            "arn:aws:ec2:us-east-1:714599991012:subnet/subnet-021f22a601fb6c438",
+            "arn:aws:ec2:eu-central-1:714599991012:subnet/subnet-089837bc59224d880"
+          ]
+        }
+      }
+    },
+    {
+      "Effect": "Deny",
+      "Action": [
+        "ec2:RunInstances"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "ForAnyValue:StringNotEqualsIfExists": {
+          "ec2:SecurityGroupID": [
+            "sg-0ad46be922b934d18",
+            "sg-0f92e74a88404da4d",
+            "sg-0cc1d1cdc05a2b4cc",
+            "sg-0001d59af7ee4cfaf"
+          ]
+        }
+      }
+    }
+  ]
+}

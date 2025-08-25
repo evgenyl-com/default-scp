@@ -1,0 +1,22 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": [
+        "ec2:CreateVpcPeeringConnection",
+        "ec2:AcceptVpcPeeringConnection",
+        "globalaccelerator:Create*",
+        "globalaccelerator:Update*",
+        "ec2:AssociateTransitGatewayMulticastDomain",
+        "ec2:ModifyTransitGatewayVpcAttachment",
+        "ec2:DisassociateTransitGatewayMulticastDomain",
+        "ec2:CreateTransitGatewayVpcAttachment",
+        "ec2:CreateClientVpnEndpoint",
+        "ec2:CreateClientVpnRoute",
+        "ec2:AuthorizeClientVpnIngress"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

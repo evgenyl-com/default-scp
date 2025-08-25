@@ -1,0 +1,70 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyAllOutsideServices",
+      "Effect": "Deny",
+      "NotAction": [
+        "cloudwatch:DescribeAlarms",
+        "chatbot:*",
+        "cognito-idp:*",
+        "cognito-identity:*",
+        "logs:FilterLogEvents",
+        "ram:*",
+        "glue:*",
+        "a4b:*",
+        "acm:*",
+        "access-analyzer:*",
+        "aws-portal:*",
+        "awsbillingconsole:*",
+        "budgets:*",
+        "ce:*",
+        "chime:*",
+        "cloudfront:*",
+        "config:*",
+        "cur:*",
+        "ec2:*",
+        "fms:*",
+        "globalaccelerator:*",
+        "health:*",
+        "iam:*",
+        "importexport:*",
+        "kms:*",
+        "networkmanager:*",
+        "organizations:*",
+        "pricing:*",
+        "route53:*",
+        "route53domains:*",
+        "s3:*",
+        "shield:*",
+        "sts:*",
+        "support:*",
+        "trustedadvisor:*",
+        "waf-regional:*",
+        "waf:*",
+        "wafv2:*",
+        "wellarchitected:*",
+        "cloudwatch:GetDashboard",
+        "codeartifact:GetAuthorizationToken",
+        "ssm:*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringNotEquals": {
+          "aws:RequestedRegion": [
+            "eu-west-1",
+            "eu-central-1",
+            "us-east-1",
+            "ap-southeast-2",
+            "us-east-2"
+          ]
+        },
+        "ArnNotLike": {
+          "aws:PrincipalARN": [
+            "arn:aws:iam::*:role/AWSControlTowerExecution"
+          ]
+        }
+      }
+    }
+  ]
+}
